@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "bcrypt": "^6.0.0",
     "cloudinary": "^2.10.0",
     "dotenv": "^17.4.2",
@@ -19,6 +20,11 @@
     "mongodb": "^7.5.0",
     "mongoose": "^9.7.4",
     "multer": "^2.2.0",
+=======
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+>>>>>>> dafe4ad1856ebab7f58cff96bf849a8adda98607
     "nanoid": "^6.0.0",
     "nodemon": "^3.1.14"
   }

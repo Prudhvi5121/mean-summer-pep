@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // const arr = require("../storage/storage");
 const { statusCodes, errMessage } = require("../utils/utils");
 const jwt = require("jsonwebtoken");
@@ -30,6 +31,26 @@ const authLogin = async (req, res, next) => {
           id: existingUser._id,
           username: existingUser.name,
           status: existingUser.isActive,
+=======
+const arr = require("../storage/storage");
+const { statusCodes, errMessage } = require("../utils/utils");
+const jwt = require("jsonwebtoken");
+
+const authLogin = (req, res, next) => {
+
+  console.log(arr);
+  try {
+    const { username, password } = req.body;
+
+    const isUserValid = arr.find(
+      (item) => item.username == username && item.password == password,
+    );
+    if (isUserValid) {
+      const token = jwt.sign(
+        {
+          id: isUserValid.id,
+          username: isUserValid.username,
+>>>>>>> dafe4ad1856ebab7f58cff96bf849a8adda98607
         },
         process.env.JWT_SECRET,
         {
@@ -42,6 +63,7 @@ const authLogin = async (req, res, next) => {
         message: "Login Successfull",
         token,
       });
+<<<<<<< HEAD
     } else {
       res.status(statusCodes.LOGIN).json({
         status: "SUCCESS",
@@ -49,6 +71,15 @@ const authLogin = async (req, res, next) => {
         token,
       });
     }
+=======
+    }
+
+    res.status(statusCodes.LOGIN).json({
+      status: "SUCCESS",
+      message: "LOGIN FAILED",
+      token,
+    });
+>>>>>>> dafe4ad1856ebab7f58cff96bf849a8adda98607
   } catch (err) {
     const error = new Error(err);
     error.status = statusCodes.DEFAULT;
@@ -57,6 +88,7 @@ const authLogin = async (req, res, next) => {
   }
 };
 
+<<<<<<< HEAD
 const authSignUp = async (req, res, next) => {
   try {
     let { name, email, mobile, age, city, isActive, password } = req.body;
@@ -90,6 +122,23 @@ const authSignUp = async (req, res, next) => {
       password,
     });
 
+=======
+const authSignUp = (req, res, next) => {
+  console.log(arr);
+  try {
+    console.log(arr);
+    const { username, password } = req.body;
+    console.log(username, password);
+    const obj = {
+      id: Date.now,
+      username,
+      password,
+    };
+
+    console.log("Hello from the signup");
+
+    arr.push(obj);
+>>>>>>> dafe4ad1856ebab7f58cff96bf849a8adda98607
     res.status(201).json({
       status: "SUCCESS",
       message: "User Created successfully",

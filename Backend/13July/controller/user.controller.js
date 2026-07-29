@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const User = require("../model/user.schema");
 const uploadOnCloudinary = require("../middlewares/cloudinary.middleware");
 
@@ -35,6 +36,12 @@ const createPost = async (req, res) => {
     }
 } 
 
+=======
+const userHome = (req, res) => {
+    res.json("User Home Page");
+}
+
+>>>>>>> dafe4ad1856ebab7f58cff96bf849a8adda98607
 module.exports = {
     userHome
 }
